@@ -1,0 +1,88 @@
+﻿@page
+@model ShoppingSiteDotNetCore.Pages.Admin.ProductFormModel
+@{
+    Layout = "_Admin";
+}
+
+<div class="page-inner">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
+        <div>
+            <h3 class="fw-bold mb-3">Product Form</h3>
+        </div>
+        <div class="ms-md-auto py-2 py-md-0">
+            <a asp-page="/Admin/ProductList" class="btn btn-primary btn-round"><i class="fa fa-angle-left"></i>&nbsp;Back</a>
+        </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                <h2>Product </h2>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label">Category</label>
+                <select asp-for="ProductTblDTO.CategoryId" class="form-control">
+                </select>
+                <span class="text-danger" asp-validation-for="ProductTblDTO.CategoryId"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">SubCategory</label>
+                <select asp-for="ProductTblDTO.SubCategoryId" class="form-control">
+                </select>
+                <span class="text-danger" asp-validation-for="ProductTblDTO.SubCategoryId"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">ThirdCategory</label>
+                <select asp-for="ProductTblDTO.ThirdCategoryId" class="form-control">
+                </select>
+                <span class="text-danger" asp-validation-for="ProductTblDTO.ThirdCategoryId"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Brand</label>
+                <select asp-for="ProductTblDTO.BrandId" class="form-control">
+                </select>
+                <span class="text-danger" asp-validation-for="ProductTblDTO.BrandId"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Product Name</label>
+                <input asp-for="ProductTblDTO.Product" class="form-control">
+                <span class="text-danger" asp-validation-for="ProductTblDTO.Product"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Product Price</label>
+                <input asp-for="ProductTblDTO.Price" class="form-control">
+                <span class="text-danger" asp-validation-for="ProductTblDTO.Price"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Icon</label>
+                <input asp-for="ProductTblDTO.Icon" class="form-control">
+                <span class="text-danger" asp-validation-for="ProductTblDTO.Icon"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input asp-for="ProductTblDTO.Description" class="form-control">
+                <span class="text-danger" asp-validation-for="ProductTblDTO.Description"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <select class="form-control" asp-for="ProductTblDTO.Status">
+                    <option value="">-- Select Status --</option>
+                    <option value="Active">Active</option>
+                    <option value="Deactive">deactive</option>
+                </select>
+                <span class="text-danger" asp-validation-for="ProductTblDTO.Status"></span>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary" name="btnSubmit">Submit</button>
+        </div>
+    </form>
+</div>
+@section JavaScriptContent
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

@@ -1,0 +1,67 @@
+﻿@page
+@model ShoppingSiteDotNetCore.Pages.Admin.ThirdCategoryFormModel
+@{
+    Layout = "_Admin";
+}
+
+<div class="page-inner">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
+        <div>
+            <h3 class="fw-bold mb-3">ThirdCategory Form</h3>
+        </div>
+        <div class="ms-md-auto py-2 py-md-0">
+            <a asp-page="/Admin/ThirdCategoryList" class="btn btn-primary btn-round"><i class="fa fa-angle-left"></i>&nbsp;Back</a>
+        </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                <h2>ThirdCategory </h2>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label">Category</label>
+                <select asp-for="ThirdCategoryTblDTO.CategoryId" class="form-control">
+                </select>
+                <span class="text-danger" asp-validation-for="ThirdCategoryTblDTO.CategoryId"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">SubCategory</label>
+                <select asp-for="ThirdCategoryTblDTO.SubCategoryId" class="form-control">
+                </select>
+                <span class="text-danger" asp-validation-for="ThirdCategoryTblDTO.SubCategoryId"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">ThirdCategory</label>
+                <input asp-for="ThirdCategoryTblDTO.ThirdCategory" class="form-control">
+                <span class="text-danger" asp-validation-for="ThirdCategoryTblDTO.ThirdCategory"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Icon</label>
+                <input asp-for="ThirdCategoryTblDTO.Icon" class="form-control">
+                <span class="text-danger" asp-validation-for="ThirdCategoryTblDTO.Icon"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <select class="form-control" asp-for="ThirdCategoryTblDTO.Status">
+                    <option value="">-- Select Status --</option>
+                    <option value="Active">Active</option>
+                    <option value="Deactive">deactive</option>
+                </select>
+                <span class="text-danger" asp-validation-for="ThirdCategoryTblDTO.Status"></span>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary" name="btnSubmit">Submit</button>
+        </div>
+    </form>
+</div>
+@section JavaScriptContent
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
+

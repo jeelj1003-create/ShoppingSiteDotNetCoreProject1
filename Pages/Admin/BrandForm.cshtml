@@ -1,0 +1,54 @@
+﻿@page
+@model ShoppingSiteDotNetCore.Pages.Admin.BrandFormModel
+@{
+    Layout = "_Admin";
+}
+
+<div class="page-inner">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
+        <div>
+            <h3 class="fw-bold mb-3">Brand Form</h3>
+        </div>
+        <div class="ms-md-auto py-2 py-md-0">
+            <a asp-page="/Admin/BrandList" class="btn btn-primary btn-round"><i class="fa fa-angle-left"></i>&nbsp;Back</a>
+        </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                <h2>Brand </h2>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label">Brand</label>
+                <input asp-for="BrandTblDTO.Brand" class="form-control">
+                <span class="text-danger" asp-validation-for="BrandTblDTO.BrandId"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Icon</label>
+                <input asp-for="BrandTblDTO.Icon" class="form-control">
+                <span class="text-danger" asp-validation-for="BrandTblDTO.Icon"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <select class="form-control" asp-for="BrandTblDTO.Status">
+                    <option value="">-- Select Status --</option>
+                    <option value="Active">Active</option>
+                    <option value="Deactive">deactive</option>
+                </select>
+                <span class="text-danger" asp-validation-for="BrandTblDTO.Status"></span>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary" name="btnSubmit">Submit</button>
+        </div>
+    </form>
+</div>
+@section JavaScriptContent
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

@@ -1,0 +1,52 @@
+﻿@page
+@model ShoppingSiteDotNetCore.Pages.Admin.CityFormModel
+@{
+    Layout = "_Admin";
+}
+
+<div class="page-inner">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
+        <div>
+            <h3 class="fw-bold mb-3">City Form</h3>
+        </div>
+        <div class="ms-md-auto py-2 py-md-0">
+            <a asp-page="/Admin/CityList" class="btn btn-primary btn-round"><i class="fa fa-angle-left"></i>&nbsp;Back</a>
+        </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                <h2>City </h2>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label">Country</label>
+                <select asp-for="CityTblDTO.CountryId" class="form-control">
+                </select>
+                <span class="text-danger" asp-validation-for="CityTblDTO.CountryId"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">State</label>
+                <select asp-for="CityTblDTO.StateId" class="form-control">
+                </select>
+                <span class="text-danger" asp-validation-for="CityTblDTO.StateId"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">City</label>
+                <input asp-for="CityTblDTO.City" class="form-control">
+                <span class="text-danger" asp-validation-for="CityTblDTO.City"></span>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary" name="btnSubmit">Submit</button>
+        </div>
+    </form>
+</div>
+@section JavaScriptContent
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

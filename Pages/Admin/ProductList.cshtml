@@ -1,0 +1,37 @@
+﻿@page
+@model ShoppingSiteDotNetCore.Pages.Admin.ProductListModel
+@{
+    Layout = "_Admin";
+}
+<div class="page-inner">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
+        <div>
+            <h3 class="fw-bold mb-3">Product List</h3>
+        </div>
+        <div class="ms-md-auto py-2 py-md-0">
+            <a asp-page="/Admin/ProductForm" class="btn btn-primary btn-round"><i class="fa fa-plus"></i>&nbsp;Add</a>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <label class="dropdownEntries d-block w-25">
+                    <h5>Show</h5>
+                    <select class="w-50">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <h5>Entries</h5>
+                </label>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <label class="dropdownEntries d-block">
+                    <h5>Search:</h5>
+                    <input type="text" name="txtSearch" />
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

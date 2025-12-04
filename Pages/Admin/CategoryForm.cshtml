@@ -1,0 +1,79 @@
+﻿@page
+@model ShoppingSiteDotNetCore.Pages.Admin.CategoryFormModel
+@{
+    Layout = "_Admin";
+}
+<div class="page-inner">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
+        <div>
+            <h3 class="fw-bold mb-3">Category Form</h3>
+        </div>
+        <div class="ms-md-auto py-2 py-md-0">
+            <a asp-page="/Admin/CategoryList" class="btn btn-primary btn-round"><i class="fa fa-angle-left"></i>&nbsp;Back</a>
+        </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                <h2>Category </h2>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label">Category</label>
+                <input asp-for="CategoryTblDTO.Category" class="form-control">
+                <span class="text-danger" asp-validation-for="CategoryTblDTO.Category"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Icon</label>
+                <div class="d-flex">
+                    <input asp-for="CategoryTblDTO.Icon" class="form-control">
+                    <span class="text-danger" asp-validation-for="CategoryTblDTO.Icon"></span>
+                   @*  @if (!string.IsNullOrEmpty(CategoryTblDTO.Icon))
+                    {
+                        
+                    } *@
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <select class="form-control" asp-for="CategoryTblDTO.Status">
+                    <option value="">-- Select Status --</option>
+                    <option value="Active">Active</option>
+                    <option value="Deactive">deactive</option>
+                </select>
+                <span class="text-danger" asp-validation-for="CategoryTblDTO.Status"></span>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            @if(string.IsNullOrEmpty(Request.Query["Edit"]))
+            {
+                <input type="submit" asp-page-handler="Create" class="btn btn-success" value="Save" />
+            }
+            else
+            {
+                <input type="hidden" asp-for="CategoryTblDTO.CatId" class="form-control" />
+                <input type="submit" asp-page-handler="Update" class="btn btn-success" value="Update" />
+            }
+        </div>
+        @if(!string.IsNullOrEmpty(Model.Message))
+        {
+            <div class="bg bg-success alert alert-success text-center mt-3">
+                @Model.Message
+            </div>
+        }
+        else if(!string.IsNullOrEmpty(Model.Error))
+        {
+            <div class="bg bg-danger alert alert-danger text-center mt-3">
+                @Model.Error
+            </div>
+        }
+    </form>
+</div>
+@section JavaScriptContent
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

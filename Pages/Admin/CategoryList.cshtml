@@ -1,0 +1,60 @@
+﻿@page
+@model ShoppingSiteDotNetCore.Pages.Admin.CategoryListModel
+@{
+    Layout = "_Admin";
+}
+<div class="page-inner">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
+        <div>
+            <h3 class="fw-bold mb-3">Category List</h3>
+        </div>
+        <div class="ms-md-auto py-2 py-md-0">
+            <a asp-page="/Admin/CategoryForm" class="btn btn-primary btn-round"><i class="fa fa-plus"></i>&nbsp;Add</a>
+        </div>
+    </div>
+</div>
+<form method="post" enctype="multipart/form-data">
+    <div class="card my--5">
+        <div class="card-header">
+            <h2>Category List</h2>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-border table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Catgeory</th>
+                        <th>Icon</th>
+                        <th>Status</th>
+                        <th>Entry Date</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.GetCategory != null)
+                    {
+                        @foreach (var Category in Model.GetCategory)
+                        {
+                            <tr>
+                                <td>@Category.CatId</td>
+                                <td>@Category.Category</td>
+                                <td>
+                                    <img alt="" height="100px" width="100px" src="@Category.IconPath" />
+                                </td>
+                                <td>@Category.Status</td>
+                                <td>@Category.EntryDate</td>                      
+                                <td>
+                                    <a asp-page="CategoryForm" asp-route-EditId="@Category.CatId" class="btn btn-info">Edit</a>
+                                </td>
+                                <td>
+                                    <input type="submit" onclick="return confirm('Are you sure, You want to delete your data.?')" class="btn btn-danger" asp-page-handler="Delete" asp-route-DeleteId="@Category.CatId" value="Delete" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
