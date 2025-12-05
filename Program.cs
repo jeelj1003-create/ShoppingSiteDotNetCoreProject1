@@ -13,6 +13,7 @@ builder.Services.AddSingleton<DbConnector>();
 
 //NTier Services - Dependency Injection
 builder.Services.AddScoped<ICategoryTblServices, CategoryTblServices>();
+builder.Services.AddScoped<ISubCategoryTblServices, SubCategoryTblServices>();
 
 var app = builder.Build();
 

@@ -22,8 +22,7 @@
         <div class="card-body">
             <div class="mb-3">
                 <label class="form-label">Category</label>
-                <select asp-for="SubCategoryTblDTO.CategoryId" class="form-control">
-                    
+                <select asp-for="SubCategoryTblDTO.CategoryId" class="form-control" asp-items="Model.CategoryList">
                 </select>
                 <span class="text-danger" asp-validation-for="SubCategoryTblDTO.CategoryId"></span>
             </div>
@@ -48,8 +47,24 @@
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary" name="btnSubmit">Submit</button>
+            <div class="card-footer text-center">
+                @if (string.IsNullOrEmpty(Request.Query["Edit"]))
+                {
+                    <input type="submit" asp-page-handler="Create" class="btn btn-success" value="Save" />
+                }
+                else
+                {
+                    <input type="hidden" asp-for="SubCategoryTblDTO.SubCatId" class="form-control" />
+                    <input type="submit" asp-page-handler="Update" class="btn btn-success" value="Update" />
+                }
+            </div>
         </div>
+        @if (!string.IsNullOrEmpty(Model.Error))
+        {
+            <div class="bg bg-danger alert alert-danger text-center mt-3">
+                @Model.Error
+            </div>
+        }
     </form>
 </div>
 @section JavaScriptContent
