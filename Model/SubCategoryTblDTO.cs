@@ -18,5 +18,6 @@ namespace ShoppingSiteDotNetCore.Model
 
         [Required(ErrorMessage = "Please Select any option.")]
         public string? Status { get; set; }
+        public DateTime EntryDate { get; set; }
     }
 }
